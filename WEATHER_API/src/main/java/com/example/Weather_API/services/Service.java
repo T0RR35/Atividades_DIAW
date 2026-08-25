@@ -1,5 +1,8 @@
-package main.java.com.example.Weather_API.services;
+package com.example.Weather_API.service;
 
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.client.RestTemplate;
 
 //https://api.open-meteo.com/v1/forecast?latitude=-19.9208&longitude=-43.9378&daily=temperature_2m_min,temperature_2m_max&current=temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m,rain
 public class Service {
@@ -17,43 +20,8 @@ public class Service {
         return dados;
     }
 
-    @GetMapping("/temperatura")
     public String consultarTemperatura(){
         return consultarURL(BASE_URL + "&current=temperature_2m");
     }
 
-    @GetMapping("/unidade")
-    public String consultarUmidade(){
-        return service.consultarUmidade();
-    }
-
-    @GetMapping("/velocidade_vento")
-    public String consultarVelocidadeVento(){
-        return service.consultarVelVento();
-    }
-
-    @GetMapping("/direcao_vento")
-    public String consultarDirecaoVento(){
-        return service.consultarDirecaoVento();
-    }
-
-    @GetMapping("/temperatura_max")
-    public String consultarTemperaturaMax(){
-        return service.consultarTemperaturaMax();
-    }
-
-    @GetMapping("/temperatura_min")
-    public String consultarTemperaturaMin(){
-        return consultarURL(BASE_URL + "&daily=temperature_2m_min");
-    }
-
-    @GetMapping("/localizacao")
-    public String consultarLocalizacao(){
-        return service.consultarLocalizacao();
-    }
-
-    @GetMapping("/temperatura_max")
-    public String consultarHorario(){
-        return service.consultarHorario();
-    }
 }
