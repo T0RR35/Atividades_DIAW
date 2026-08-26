@@ -2,8 +2,8 @@ package com.example.Weather_API.controller;
 
 import com.example.Weather_API.service.Service;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
 
 @RestController
 public class Controller {
@@ -11,42 +11,42 @@ public class Controller {
     Service service = new Service();
 
     @GetMapping("/temperatura")
-    public String consultarTemperatura() {
-        return service.consultarTemperatura();
+    public String temperatura(@RequestParam String cidade) {
+        return service.consultarTemperatura(cidade);
     }
 
     @GetMapping("/umidade")
-    public String consultarUmidade() {
-        return service.consultarUmidade();
+    public String umidade(@RequestParam String cidade) {
+        return service.consultarUmidade(cidade);
     }
 
     @GetMapping("/velocidade_vento")
-    public String consultarVelocidadeVento() {
-        return service.consultarVelVento();
+    public String velocidadeVento(@RequestParam String cidade) {
+        return service.consultarVelVento(cidade);
     }
 
     @GetMapping("/direcao_vento")
-    public String consultarDirecaoVento() {
-        return service.consultarDirecaoVento();
+    public String direcaoVento(@RequestParam String cidade) {
+        return service.consultarDirecaoVento(cidade);
     }
 
     @GetMapping("/temperatura_max")
-    public String consultarTemperaturaMax() {
-        return service.consultarTemperaturaMax();
+    public String temperaturaMax(@RequestParam String cidade) {
+        return service.consultarTemperaturaMax(cidade);
     }
 
     @GetMapping("/temperatura_min")
-    public String consultarTemperaturaMin() {
-        return service.consultarTemperaturaMin();
+    public String temperaturaMin(@RequestParam String cidade) {
+        return service.consultarTemperaturaMin(cidade);
     }
 
     @GetMapping("/localizacao")
-    public String consultarLocalizacao() {
-        return service.consultarLocalizacao();
+    public String localizacao(@RequestParam String cidade) {
+        return service.consultarLocalizacao(cidade);
     }
 
     @GetMapping("/horario")
-    public String consultarHorario() {
-        return service.consultarHorario();
+    public String horario(@RequestParam String cidade) {
+        return service.consultarHorario(cidade);
     }
 }
