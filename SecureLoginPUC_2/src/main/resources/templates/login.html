@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" th:href="@{/css/login.css}">
+</head>
+<body>
+    <div class="login-image-logo-container">
+        <img th:src="@{/images//pucTorres.jpeg}" alt="LOGO PUC MINAS">
+    </div>
+    <div class="main">
+        <div class="login-container">
+            <div class="login-form">
+                <form th:action="@{login}" method="post" class="login-form">
+                    <h4 class="login-title">Login</h4>
+                    <input type="text" name="username" id="username" placeholder="Username" required>
+                    <input type="password" name="password" id="password" placeholder="Senha" required>
+                    <div class="login-button-container">
+                        <button type="submit">Entrar</button>
+                    </div>
+                    <p class="login-redirect-options">
+                        Ainda não tem cadastro?<br>
+                        <a href="/register">Cadastre-se</a>
+                        <a href="/recoverpassword">Esqueceu sua senha?</a>
+
+                    </p>
+                </form>
+            </div>
+        </div>
+    </div>
+        
+</body>
+</html>
