@@ -12,7 +12,7 @@ import jakarta.websocket.server.PathParam;
 public class SecureLoginController {
 
     @GetMapping("/login")
-    public String login(@RequestParam String nome) {
+    public String login() {
         return "login";
     }
 
