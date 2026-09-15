@@ -68,6 +68,6 @@ public class SecureLoginController {
 
         // Redirecionar ou exibir uma mensagem de sucesso
         System.out.println("Recuperação de E-mail: Redirecionado para a página de login.");
-        return "redirect:/login"; // Após a recuperação de senha, redirecionar para a página de login
+        return "redirect:/recoverpassword"; // Após a recuperação de senha, redirecionar para a página de login
     }
 }
