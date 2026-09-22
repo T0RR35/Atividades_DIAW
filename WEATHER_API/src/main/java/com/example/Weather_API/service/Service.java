@@ -9,6 +9,7 @@ import tools.jackson.databind.ObjectMapper;
 public class Service {
     private final RestTemplate restTemplate = new RestTemplate();
     private final ObjectMapper mapper = new ObjectMapper();
+
     private JsonNode buscarCidade(String cidade) throws Exception {
         String url = UriComponentsBuilder
                 .fromUriString("https://geocoding-api.open-meteo.com/v1/search")
@@ -19,8 +20,7 @@ public class Service {
                 .queryParam("countryCode", "BR")
                 .build()
                 .toUriString();
-        ResponseEntity<String> resposta =
-                restTemplate.getForEntity(url, String.class);
+        ResponseEntity<String> resposta = restTemplate.getForEntity(url, String.class);
         if (resposta.getBody() == null) {
             throw new Exception("Resposta vazia da API de localização");
         }
@@ -34,34 +34,31 @@ public class Service {
         }
         return resultados.get(0);
     }
+
     private JsonNode buscarClima(String cidade) throws Exception {
         JsonNode localizacao = buscarCidade(cidade);
-        double latitude =
-                localizacao.get("latitude").asDouble();
-        double longitude =
-                localizacao.get("longitude").asDouble();
+        double latitude = localizacao.get("latitude").asDouble();
+        double longitude = localizacao.get("longitude").asDouble();
         String url = UriComponentsBuilder
                 .fromUriString("https://api.open-meteo.com/v1/forecast")
                 .queryParam("latitude", latitude)
                 .queryParam("longitude", longitude)
                 .queryParam(
                         "current",
-                        "temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m"
-                )
+                        "temperature_2m,relative_humidity_2m,wind_speed_10m,wind_direction_10m")
                 .queryParam(
                         "daily",
-                        "temperature_2m_max,temperature_2m_min"
-                )
+                        "temperature_2m_max,temperature_2m_min")
                 .queryParam("timezone", "auto")
                 .build()
                 .toUriString();
-        ResponseEntity<String> resposta =
-                restTemplate.getForEntity(url, String.class);
+        ResponseEntity<String> resposta = restTemplate.getForEntity(url, String.class);
         if (resposta.getBody() == null) {
             throw new Exception("Resposta vazia da API de clima");
         }
         return mapper.readTree(resposta.getBody());
     }
+
     public String consultarTemperatura(String cidade) {
         try {
             JsonNode json = buscarClima(cidade);
@@ -74,6 +71,7 @@ public class Service {
             return "Erro: " + e.getMessage();
         }
     }
+
     public String consultarUmidade(String cidade) {
         try {
             JsonNode json = buscarClima(cidade);
@@ -86,6 +84,7 @@ public class Service {
             return "Erro: " + e.getMessage();
         }
     }
+
     public String consultarVelVento(String cidade) {
         try {
             JsonNode json = buscarClima(cidade);
@@ -100,6 +99,7 @@ public class Service {
             return "Erro: " + e.getMessage();
         }
     }
+
     public String consultarDirecaoVento(String cidade) {
         try {
             JsonNode json = buscarClima(cidade);
@@ -114,6 +114,7 @@ public class Service {
             return "Erro: " + e.getMessage();
         }
     }
+
     public String consultarTemperaturaMax(String cidade) {
         try {
             JsonNode json = buscarClima(cidade);
@@ -129,6 +130,7 @@ public class Service {
             return "Erro: " + e.getMessage();
         }
     }
+
     public String consultarTemperaturaMin(String cidade) {
         try {
             JsonNode json = buscarClima(cidade);
@@ -144,6 +146,7 @@ public class Service {
             return "Erro: " + e.getMessage();
         }
     }
+
     public String consultarLocalizacao(String cidade) {
         try {
             JsonNode localizacao = buscarCidade(cidade);
@@ -157,13 +160,14 @@ public class Service {
             return "Erro: " + e.getMessage();
         }
     }
+
     public String consultarHorario(String cidade) {
         try {
             JsonNode json = buscarClima(cidade);
             return "Horário: "
                     + json.get("current")
-                    .get("time")
-                    .asText();
+                            .get("time")
+                            .asText();
         } catch (Exception e) {
             return "Erro: " + e.getMessage();
         }
