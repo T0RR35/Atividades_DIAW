@@ -1,0 +1,12 @@
+.candidato-card-img {
+    height: 200px;
+    width: 100%;
+    aspect-ratio: 161/225;
+    object-fit: cover;
+}
+
+.col{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 12px;
+}
