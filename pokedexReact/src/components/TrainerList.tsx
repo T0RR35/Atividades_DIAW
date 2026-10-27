@@ -24,6 +24,11 @@ export default function TrainerList({ pesquisa }: Props) {
     <div className="trainer-list">
       {treinadorFilter.map((treinador) => (
         <li key={treinador.id} className="trainer-card">
+          <img
+            src={`https://play.pokemonshowdown.com/sprites/trainers/${treinador.name.toLowerCase().replace(/[.\s]/g, "")}.png`}
+            alt={treinador.name}
+            loading="lazy"
+          />
           <h1 className="trainer-name">
             {treinador.name} #{treinador.id}
           </h1>

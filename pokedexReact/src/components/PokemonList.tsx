@@ -20,12 +20,10 @@ export default function PokemonList({ pesquisa, tipoSelecionado }: Props) {
     }
   });
 
-  // Salva sempre que a lista mudar
   useEffect(() => {
     try {
       localStorage.setItem("favoritos", JSON.stringify(favoritos));
     } catch {
-      /* localStorage indisponível, ignora */
     }
   }, [favoritos]);
 
