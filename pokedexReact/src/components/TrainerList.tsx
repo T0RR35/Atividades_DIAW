@@ -28,6 +28,8 @@ export default function TrainerList({ pesquisa }: Props) {
             src={`https://play.pokemonshowdown.com/sprites/trainers/${treinador.name.toLowerCase().replace(/[.\s]/g, "")}.png`}
             alt={treinador.name}
             loading="lazy"
+            height={150}
+            width={150}
           />
           <h1 className="trainer-name">
             {treinador.name} #{treinador.id}
@@ -42,9 +44,13 @@ export default function TrainerList({ pesquisa }: Props) {
               if (!pokemon) return null;
 
               return (
-                <p key={pokemon.id} className="team-pokemon">
-                  #{pokemon.id} - {pokemon.name}
-                </p>
+                <img
+                  src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`}
+                  alt={pokemon.name}
+                  loading="lazy"
+                  height={50}
+                  width={50}
+                />
               );
             })}
           </div>
