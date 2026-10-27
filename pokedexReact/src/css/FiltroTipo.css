@@ -1,0 +1,23 @@
+.filtro-container {
+  text-align: center;
+  margin-bottom: 24px;
+  padding: 0 20px;
+}
+
+.filtro-select {
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 12px;
+  border: 2px solid #ddd;
+  background-color: white;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease;
+  outline: none;
+  min-width: 200px;
+}
+
+.filtro-select:focus {
+  border-color: #2a75bb;
+  box-shadow: 0 4px 12px rgba(42, 117, 187, 0.3);
+}

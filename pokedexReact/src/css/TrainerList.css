@@ -1,0 +1,69 @@
+.trainer-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 20px 32px;
+  justify-content: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.trainer-card {
+  list-style: none;
+  width: 240px;
+  padding: 20px;
+  border: 2px solid transparent;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #ffffff 0%, #f9f9f9 100%);
+  box-sizing: border-box;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.trainer-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 12px 24px rgba(42, 117, 187, 0.25);
+  border-color: #2a75bb;
+}
+
+.trainer-name {
+  font-size: 22px;
+  color: #2a75bb;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.trainer-badges {
+  color: #e3350d;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.team-section {
+  text-align: left;
+  margin-top: 12px;
+}
+
+.team-title {
+  font-weight: 600;
+  color: #2a75bb;
+  margin-bottom: 8px;
+  text-align: center;
+}
+
+.team-pokemon {
+  font-size: 14px;
+  color: #333;
+  padding: 4px 0;
+  text-transform: capitalize;
+}
+
+.no-trainer {
+  text-align: center;
+  color: #666;
+  font-size: 24px;
+  padding: 40px;
+  width: 100%;
+}

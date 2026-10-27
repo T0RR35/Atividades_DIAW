@@ -46,6 +46,9 @@ application-*.yml
 *.log
 logs/
 
+### React
+node_modules/
+
 ### Environment / Secrets ###
 .env
 .env.local
