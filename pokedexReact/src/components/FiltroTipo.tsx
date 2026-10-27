@@ -24,6 +24,7 @@ export default function FiltroTipo({
         onChange={(e) => setTipoSelecionado(e.target.value)}
       >
         <option value="Todos">Todos os tipos</option>
+        <option value="Favoritos">Favoritos</option>
         {tipos.map((tipo) => (
           <option key={tipo.valor} value={tipo.valor}>
             {tipo.nome}
